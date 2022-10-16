@@ -4,11 +4,12 @@ class Stack {
     }
 
     push(element) {
-        return this.items.push(element);
+        this.items.push(element);
     }
 
+    // remove e devolve o elemento
     pop() {
-       return this.items.pop();
+        return this.items.pop();
     }
 
     peek() {
@@ -23,11 +24,12 @@ class Stack {
     size() {
         return this.items.length;
     }
-
+    
+    // esvazia a pilha removendo todos os elementos
     clear() {
         this.items = [];
         /*
-        while(!this.isEmpty){
+        while (!this.isEmpty()) {
             this.pop();
         }
         */
@@ -39,6 +41,17 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 stack.pop();
-stack.clear();
+stack.peek();
+console.log(stack.isEmpty());
+stack.push(5);
+stack.push(8);
+console.log(stack.peek()); // elemento do topo, último elemento adicionado
+stack.push(11);
+console.log(stack.size());
+console.log(stack.isEmpty());
+stack.push(15);
+stack.pop();
+stack.pop();
+console.log(stack.size());
 
 console.log(stack);
