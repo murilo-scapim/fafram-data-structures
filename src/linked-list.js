@@ -25,10 +25,49 @@ class LinkedList {
         }
         this.count++; // incrementa tamanho da lista
     }
+
+    // busca de um nó pela posição
+    getElementAt(index){
+        if (index >= 0 && index < this.count) {
+            let current = this.head;
+            for (let i = 0; i < index && current != null; i++) {
+                current = current.next; // anda na lista
+            }
+            // ao sair do laço, o nó atual será o nó na posição index
+            return current;
+        }
+        return undefined; // posição que não existe
+    }
+
+    removeAt(index) {
+        // verificação se esse índice é válido
+        if (index >= 0 && index < this.count) {
+            let current = this.head;
+
+            // remoção do nó no início da lista
+            if (index == 0) {
+                this.head = current.next;
+            } else { // removendo o último ou do meio
+                const previous = this.getElementAt(index - 1); // recuperar o nó anterior
+                current = previous.next;
+                previous.next = current.next;
+            }
+            this.count--;
+            return current.element;
+        }
+        return undefined;
+    }
 }
 
 const list = new LinkedList();
 list.push(15);
 list.push(10);
+list.push(20);
+list.push(25);
 
 console.log(list);
+
+console.log(list.getElementAt(2));
+console.log(list.getElementAt(4));
+console.log(list.removeAt(3));
+console.log(list.removeAt(3));
