@@ -66,5 +66,5 @@ obj.push(20);
 console.log(obj);
 
 // Métodos herdados da classe pai
-//console.log(obj.show());
+console.log(obj.show());
 //console.log(obj.size());

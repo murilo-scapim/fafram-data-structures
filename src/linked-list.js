@@ -1,6 +1,6 @@
 import { Node } from './node.js';
 
-class LinkedList {
+export default class LinkedList {
     constructor() {
         this.count = 0; // número de elementos da lista
         this.head = undefined; // referência ao primeiro elemento
@@ -96,7 +96,7 @@ class LinkedList {
             return '';
         }
         let objString = '';
-        const current = this.head;
+        let current = this.head;
         for (let i = 0; i < this.size() && current != null; i++) {
             objString += `${current.element} `;
             current = current.next;
