@@ -57,6 +57,52 @@ class LinkedList {
         }
         return undefined;
     }
+
+    // Retorna a posição de um elemento
+    indexOf(element) {
+        let current = this.head; // primeiro nó
+        // iteramos pela lista do índice 0 até seu tamanho
+        for (let i = 0; i < this.count && current != null; i++) {
+            if (element === current.element) { // verificamos se o elemento que estamos procurando é o elemento no nó current
+                return i; // retorna a posição
+            }
+            current = current.next; // anda para o próximo nó da lista
+        }
+        return -1;
+    }
+
+    // Remove um elemento da lista
+    remove(element) {
+        const index = this.indexOf(element);
+        return this.removeAt(index);
+    }
+
+    size() {
+        return this.count;
+    }
+
+    // Devolve true se vazia e false caso contrário
+    isEmpty() {
+        return this.size() === 0;
+    }
+
+    //Primeiro elemento da lista
+    getHead() {
+        return this.head;
+    }
+
+    show() {
+        if (this.isEmpty()) {
+            return '';
+        }
+        let objString = '';
+        const current = this.head;
+        for (let i = 0; i < this.size() && current != null; i++) {
+            objString += `${current.element} `;
+            current = current.next;
+        }
+        return objString;
+    }
 }
 
 const list = new LinkedList();
